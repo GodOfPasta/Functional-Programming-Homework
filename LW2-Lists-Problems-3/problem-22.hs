@@ -13,11 +13,10 @@ main = do
     print (range 1 1)
 --  > [1]
     print (range 10 (-10))
---  > *** Exception: First element can't be larger then last
---    CallStack (from HasCallStack):
---     error, called at problem-22.hs:17:22 in main:Main
+--  [10,9,8,7,6,5,4,3,2,1,0,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10]
 
 range :: Int -> Int -> [Int]
 range fst lst
-    | fst > lst = error "First element can't be larger then last"
-range fst lst = [x | x <- [fst .. lst]]
+    | fst == lst = [lst]
+    | fst < lst = fst : range (fst+1) lst
+    | otherwise = fst : range (fst-1) lst
