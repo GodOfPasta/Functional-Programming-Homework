@@ -4,4 +4,4 @@ main :: IO ()
 main = print $ reverseList ""
 reverseList :: [a] -> [a]
 reverseList  [] = []
-reverseList  xs = last xs : reverseList (init xs)
+reverseList  (x:xs) = reverseList xs ++ [x]
