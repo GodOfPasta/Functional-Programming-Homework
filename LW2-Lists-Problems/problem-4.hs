@@ -4,4 +4,5 @@ main :: IO ()
 main = print $ myLength "aaaaa"
 
 myLength :: [a] -> Int
-myLength = length
+myLength [] = 0
+myLength (x:xs) = 1 + myLength xs
