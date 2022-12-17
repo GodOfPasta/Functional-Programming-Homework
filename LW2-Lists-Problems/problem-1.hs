@@ -4,6 +4,6 @@ main :: IO ()
 main = print $ getLast ""
 
 getLast ::[a] -> a
-getLast a
-    |null a = error "Not Enough Elements"
-    |otherwise = last a
+getLast [] = error "Not Enough Elements!"
+getLast [x] = x
+getLast (x:xs) = getLast xs
